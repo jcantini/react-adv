@@ -38,7 +38,7 @@ export const FormikAbstractation = () => {
                 }) 
             }
         >
-           { (formik) => ( 
+           { () => ( 
                     <Form>
                         <MyTextInput 
                             label="First Name" 
@@ -69,6 +69,10 @@ export const FormikAbstractation = () => {
                         <MyCheckbox label={'Terms & conditions'} name={'terms'} />
  
                         <button type='submit'>Submit</button>
+                        <br/>
+                        <h4>To further simplify the form Formik with formik components, I have created abstract components 
+                            for Input, Select and Checkbox fields so they can be reused in other forms.
+                        </h4>
 
                     </Form>
                 )

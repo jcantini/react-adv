@@ -1,4 +1,5 @@
-// Formulario usando Formik
+// Formulario usando componentes de Formik:
+// Field, Form, ErrorMessage 
 
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -38,7 +39,7 @@ export const FormikComponents = () => {
                 }) 
             }
         >
-           { (formik) => (   // Lo estoy pasando como un child 
+           { () => (   // Lo estoy pasando como un child 
                     <Form>
                         <label htmlFor="firstName">First Name</label>
                         <Field name="firstName" type="text" placeholder="First Name"/>
@@ -70,7 +71,11 @@ export const FormikComponents = () => {
 
 
                         <button type='submit'>Submit</button>
-
+                        <br/>
+                        <h4>This form uses Formik components instead of the custom hook useFormik. 
+                            Yup is also used to create a validation schema for field validation.
+                            Field validation is also triggered when the form is submited.
+                        </h4>
                     </Form>
                 )
             }

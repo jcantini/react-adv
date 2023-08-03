@@ -1,4 +1,4 @@
-// Formulario usando Formik
+// Formulario que hace un uso básico de Formik
 
 import { FormikErrors, useFormik } from 'formik';
 import '../styles/styles.css';
@@ -48,7 +48,7 @@ export const FormikBasicPage = () => {
 
   return (
     <div>
-        <h1>Formik Basic Tutorial</h1>
+        <h1>Formik Basic Form</h1>
 
         <form onSubmit={ handleSubmit }>
             <label htmlFor="firstName">First Name</label>
@@ -82,20 +82,25 @@ export const FormikBasicPage = () => {
              { touched.email && errors.email && <span>{ errors.email }</span>}
 
             <button type='submit'>Submit</button>
+            <br/>
+            <h4>This form uses Formik in a basic way. 
+                It implements the custom hook useFormik and a validate function for field validation.
+                Field validation is also triggered when the form is submited.
+            </h4>
         </form>
     </div>
   )
 }
 
 /*
-La interface la necesito porque cuando defino la constatante con la funcion validate, como esta función 
-está fuera del useFormik, no se sabe que tipo tienen los values. Si la función velidate la pongo directamente dentro
-del useFormik no sería necesario y no la pongo ahi porque con las validaciones queda un poco larga y queda más
-prolijo escribirla afuera y directamente se la paso.
+La interface la necesito porque cuando defino la constante con la funcion validate, como esta función 
+está fuera del useFormik, no se sabe que tipo tienen los values. Si la función velidate la pongo 
+directamente dentro del useFormik no sería necesario y no la pongo ahi porque con las validaciones queda 
+un poco larga y queda más prolijo escribirla afuera y directamente se la paso.
 
 touched me indica si el campo fue tocado para que en ese caso si tiene error se muestre el mensaje de errores.
-Para que funcione tengo que usarlo en conjunto con la funcion onBlur que detecta el ingreso y salida de un campo y
-al evento onBlur le asigno la función handleBlur de Formik
+Para que funcione tengo que usarlo en conjunto con la funcion onBlur que detecta el ingreso y salida de un 
+campo y al evento onBlur le asigno la función handleBlur de Formik
 */
 
 

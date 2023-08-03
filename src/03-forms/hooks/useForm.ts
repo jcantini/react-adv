@@ -3,6 +3,7 @@ import { ChangeEvent, useState } from "react";
 export const useForm = <T>( initState: T) => {
     
     const [ formData, setFormData] = useState( initState )
+    const [ inputFocus,  setInputFocus ]   = useState(false);
 
     const onChange = ( event: ChangeEvent<HTMLInputElement>) => {
         setFormData( {
@@ -24,16 +25,20 @@ export const useForm = <T>( initState: T) => {
         // Properties
         formData,
         ...formData, // devuelvo todos los campor desestructurados
+        inputFocus,
 
         // Methods
         isValidEmail,
         onChange,
-        resetForm
+        resetForm,
+        setInputFocus
     }
 }
 
 /*
-<T> como no se que info me viene para no poner any que es cualquiercosa, tomo algo genérico que llamo <T
-Lo que digo es que mi hook es genérico y recibe algo de tipo T por lo que initState que lo recibo es de tipo T
+<T> Como no se que info me viene para no poner any que es cualquier cosa, tomo algo genérico que 
+llamo <T?
+Lo que digo es que mi hook es genérico y recibe algo de tipo T por lo que initState que lo recibo
+ es de tipo T
 
 */
